@@ -24,35 +24,12 @@ void create_path(map_t **map, int x, int y)
         map[y][x].visited = 1;
         while (check_visit(map, x, y)) {
             map[y + vector.y / 2][x + vector.x / 2].c = '*';
-            printf("x = %d, y = %d, c = %c\n",x + vector.x, y + vector.y, map[y + vector.y][x + vector.x].c);
             x += vector.x;
             y += vector.y;
             map[y][x].visited = 1;
             vector = gen_vector(x, y);
-            for (int i = 0; map[i] != NULL; i++) {
-                for (int j = 0; map[i][j].c != '\0'; j++)
-                    printf("%c", map[i][j].c);
-                printf("\n");
-            }
         }
     }
-}
-
-int check_visit(map_t **map, int x, int y)
-{
-    if (x - 1 < 10 ||
-    map[x + 2][y].visited == 0)
-        return 1;
-    if (x + 1 > 0 ||
-    map[x - 2][y].visited == 0)
-        return 1;
-    if (y + 1 > 0 ||
-    map[x][y - 2].visited == 0)
-        return 1;
-    if (y - 1 < 10 ||
-    map[x][y + 2].visited == 0)
-        return 1;
-    return 0;
 }
 
 vector_t gen_vector(int x, int y)
