@@ -9,7 +9,8 @@ NAME		=	generator
 
 SRC			=	source/main_file.c\
 				source/second_file.c\
-				functions/functions.c
+				functions/functions.c\
+				source/free.c\
 
 CPPFLAGS 	=	-I./include
 

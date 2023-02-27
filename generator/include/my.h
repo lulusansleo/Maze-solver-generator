@@ -12,6 +12,7 @@
     #include <ctype.h>
     #include <stdlib.h>
     #include <stdbool.h>
+    #include <time.h>
 
 typedef struct map {
     char c;
@@ -23,9 +24,10 @@ typedef struct vector {
     int y;
 } vector_t;
 
-vector_t gen_vector(int x, int y);
+void free_map(map_t **map);
+vector_t gen_vector(int x, int y, int width, int height);
 map_t **generate(map_t **map, int x, int y);
-void create_path(map_t **map, int x, int y);
+void create_path(map_t **map, int x, int y, vector_t size);
 map_t **generation(char *width, char *height);
 map_t **write_grid(map_t **map, int x, int y);
 map_t *write_cell_line(map_t *str, int x);

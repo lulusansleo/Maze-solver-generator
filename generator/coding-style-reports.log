@@ -1,0 +1,12 @@
+./source/second_file.c:53: MAJOR:C-F3
+./source/second_file.c:68: MAJOR:C-F4
+./source/second_file.c:69: MAJOR:C-F4
+./source/second_file.c:70: MAJOR:C-F3
+./source/second_file.c:70: MAJOR:C-F4
+./source/second_file.c:71: MAJOR:C-F4
+./source/second_file.c:72: MAJOR:C-F4
+./source/second_file.c:73: MAJOR:C-F4
+./source/second_file.c:74: MAJOR:C-F4
+./source/second_file.c:74: MINOR:C-L4
+./source/second_file.c:75: MAJOR:C-F4
+./vgcore.6334:1: MAJOR:C-O1

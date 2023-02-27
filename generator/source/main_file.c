@@ -21,6 +21,7 @@ int main(int ac, char **av)
             printf("%c", map[i][j].c);
         printf("\n");
     }
+    free_map(map);
     return 0;
 }
 
@@ -31,7 +32,11 @@ map_t **generation(char *width, char *height)
     map_t **map = malloc(sizeof (map_t) * (x * y));
 
     map = write_grid(map, x, y);
-    map = generate(map, x - 1, y - 1);
+    for (int i = 0; i < y; i++) {
+        for (int j = 0; j < x; j++)
+            map[i][j].visited = 0;
+    }
+    map = generate(map, x, y);
     return map;
 }
 
