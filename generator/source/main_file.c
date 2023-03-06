@@ -10,14 +10,16 @@
 int main(int ac, char **av)
 {
     map_t **map;
-
+    int cmp = 1;
     if (ac != 3 && ac != 4)
         return 84;
     if (integer_check(av[1], av[2]))
         return 84;
-    if (ac == 4 && strcmp(av[3], "perfect") != 0)
+    if (ac == 4 && (strcmp(av[3], "perfect")) != 0)
         return 84;
-    map = generation(av[1], av[2]);
+    if (ac == 3)
+        cmp = 0;
+    map = generation(av[1], av[2], cmp);
     for (int i = 0; map[i] != NULL; i++) {
         for (int j = 0; map[i][j].c != '\0'; j++)
             printf("%c", map[i][j].c);
@@ -27,7 +29,7 @@ int main(int ac, char **av)
     return 0;
 }
 
-map_t **generation(char *width, char *height)
+map_t **generation(char *width, char *height, int cmp)
 {
     int x = atoi(width);
     int y = atoi(height);
@@ -39,6 +41,8 @@ map_t **generation(char *width, char *height)
             map[i][j].visited = 0;
     }
     map = generate(map, x, y);
+    if (cmp == 0)
+        randomize(map, x, y);
     return map;
 }
 

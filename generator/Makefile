@@ -7,12 +7,18 @@
 
 NAME		=	generator
 
+CC 			= gcc
+
 SRC			=	source/main_file.c\
 				source/second_file.c\
 				functions/functions.c\
 				source/free.c\
 
-CPPFLAGS 	=	-I./include
+CPPFLAGS 	=	-Wall -Wextra
+
+LDFLAGS 	=	-L./lib/my -lmy
+
+CFLAGS		=	-I./include
 
 OBJ			=	$(SRC:.c=.o)
 
@@ -21,15 +27,15 @@ all: compil
 compil : $(OBJ)
 	gcc -o $(NAME) $(OBJ)
 
-debug:	CFLAGS += -g3 -Wall -Wextra
+debug:	CFLAGS += -g3
 debug:	re
 
 clean:
-	rm -f $(OBJ)
+	$(RM) -f $(OBJ)
 
 fclean: clean
-	rm -f $(NAME)
+	$(RM) -f $(NAME)
 
 re: fclean all
 
-.PHONY: all makelib clean fclean re
+.PHONY: all makelib clean debug fclean re
