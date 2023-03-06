@@ -11,9 +11,11 @@ int main(int ac, char **av)
 {
     map_t **map;
 
-    if (ac != 3)
+    if (ac != 3 && ac != 4)
         return 84;
     if (integer_check(av[1], av[2]))
+        return 84;
+    if (ac == 4 && strcmp(av[3], "perfect") != 0)
         return 84;
     map = generation(av[1], av[2]);
     for (int i = 0; map[i] != NULL; i++) {
