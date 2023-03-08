@@ -43,6 +43,10 @@ map_t **generation(char *width, char *height, int cmp)
     map = generate(map, x, y);
     if (cmp == 0)
         randomize(map, x, y);
+    if (x % 2 == 0 || (y % 2 == 0 && x % 1 == 0))
+        map[y - 1][x - 1].c = '*';
+    if (y % 2 == 0)
+        map[y - 2][x - 1].c = '*';
     return map;
 }
 

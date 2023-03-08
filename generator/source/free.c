@@ -10,8 +10,8 @@
 void randomize(map_t **map, int width, int height)
 {
     for (int i = 0; i < height * width / 10; i ++) {
-        int x = rand() % width;
-        int y = rand() % height;
+        int x = rand() % (width / 2) + 1;
+        int y = rand() % (height / 2) + 1;
         if (map[y][x].c == 'X')
             map[y][x].c = '*';
     }
