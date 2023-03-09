@@ -9,9 +9,12 @@
 
 void randomize(map_t **map, int width, int height)
 {
+    int x = 0;
+    int y = 0;
+    srand(time(0));
     for (int i = 0; i < height * width / 10; i ++) {
-        int x = rand() % (width / 2) + 1;
-        int y = rand() % (height / 2) + 1;
+        x = rand() % (width);
+        y = rand() % (height);
         if (map[y][x].c == 'X')
             map[y][x].c = '*';
     }
